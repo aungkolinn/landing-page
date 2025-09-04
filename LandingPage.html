@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Our App</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffffff;
+      color: #333333;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      text-align: center;
+      position: relative;
+    }
+
+    .container {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 40px 20px 20px 20px;
+    }
+
+    .app-logo {
+      width: 100px;
+      height: 100px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #006600;
+    }
+
+    p {
+      font-size: 16px;
+      color: #2b2a2a;
+      margin-bottom: 30px;
+      line-height: 1.5;
+      max-width: 300px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 500px;
+      flex-wrap: wrap;
+    }
+
+    .btn-store {
+      flex: none;
+      min-width: auto;
+      cursor: pointer;
+    }
+
+    .btn-store img {
+      width: 100%;
+      max-width: 130px;
+      height: auto;
+    }
+
+    /* Custom alert box */
+    .custom-alert {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #ffffff; /* White UI */
+      color: #333;
+      border: 2px solid #000000;
+      padding: 25px 30px 25px 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      display: none;
+      min-width: 250px;
+      z-index: 1000;
+      text-align: left;
+    }
+
+    .custom-alert h2 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #000099;
+    }
+
+    .custom-alert .close-btn {
+      position: absolute;
+      top: 5px;
+      right: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+    }
+
+    @media (max-width: 480px) {
+      .app-logo {
+        width: 150px;
+        height: auto;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .btn-store img {
+        max-width: 130px;
+      }
+
+      /* Mobile alert box adjustments */
+      .custom-alert {
+        top: 50%;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -50%);
+        height: auto; /* reduced height on mobile */
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="app-name">
+      <img src="https://play-lh.googleusercontent.com/1otTCkF-EEDxfZ05DnqSJlJE6JncvODpKoxBoRDY9RiVATOL58qTlRVCnyLLmoaMK70=w240-h480-rw"
+        alt="App Logo" class="app-logo">
+    </div>
+
+    <h1>ယခုပဲ အခမဲ့ရယူလိုက်ပါ!</h1>
+
+    <p>ဖုန်းဖြင့် ဘောလုံးပွဲတိုက်ရိုက်နှင့် ပွဲအစဆုံး၊ ဟိုက်လိုက်များပါမကျန် အခမဲ့ကြည့်ရှူနိုင်ပါတယ်။</p>
+
+    <div class="buttons">
+      <!-- Android Button -->
+      <a href="https://play.google.com/store/apps/details?id=com.bawlone.mm" class="btn-store">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+          alt="Get it on Google Play">
+      </a>
+
+      <!-- iOS Button -->
+      <a href="" class="btn-store" id="iosBtn">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+          alt="Download on the App Store">
+      </a>
+    </div>
+  </div>
+
+  <!-- Custom alert box -->
+  <div class="custom-alert" id="customAlert">
+    <span class="close-btn" id="closeAlert">X</span>
+    <h2>Alert!</h2>
+    <p>iOS အတွက်လုပ်ဆောင်နေပါပြီ။ မကြာမီရရှိပါမည်။</p>
+  </div>
+
+  <script>
+    const iosBtn = document.getElementById('iosBtn');
+    const alertBox = document.getElementById('customAlert');
+    const closeBtn = document.getElementById('closeAlert');
+    iosBtn.addEventListener('click', function(event) {
+      const href = iosBtn.getAttribute('href');
+      if (!href) {
+        event.preventDefault();
+        alertBox.style.display = 'block';
+      }
+    });
+
+    closeBtn.addEventListener('click', function() {
+      alertBox.style.display = 'none';
+    });
+  </script>
+</body>
+
+</html>
